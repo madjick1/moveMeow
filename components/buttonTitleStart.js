@@ -5,7 +5,7 @@ import { StyleSheet, View, Pressable, Text } from 'react-native';
 export default function Button({ label }) {
   return (
     <View style={styles.buttonContainer}>
-      <Pressable style={styles.button} onPress={() => alert('You pressed a button.')}>
+      <Pressable style={styles.button} onPress={() => alert('We uh... Didn\'t finish yet')}>
         <Text style={styles.buttonLabel}>{label}</Text>
       </Pressable>
     </View>

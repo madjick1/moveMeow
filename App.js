@@ -1,48 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image} from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import Button from './components/buttonTitleStart';
 
-const titleImage = require('./assets/Cat_Base_Sprite.png');
+import { Text, View } from 'react-native';
+
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import HomeScreen from './components/screens/homeScreen';
+
+
+Stack = createNativeStackNavigator();
 
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <View style={styles.container}>
-        <Image source={titleImage} style={styles.image} />
-        <Text>Hello There</Text>
-        <StatusBar style="auto" />
-      </View>
-      <View style={styles.footerContainer}>
-        <Button label="Start" />
-      </View>
-    </SafeAreaProvider>
+    <NavigationContainer>{
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    }</NavigationContainer>
   );
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#abc',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 
-  footerContainer: {
-    flex: 1/10,
-    alignItems: 'center',
-    backgroundColor: '#0FF',
-  },
-  imageContainer: {
-    flex: 1,
-    paddingTop: 58,
-  },
-  image: {
-    width: 320,
-    height: 440,
-    borderRadius: 18,
-  },
-
-});
