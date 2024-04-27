@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { Button, StyleSheet, Text, View, Image} from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useFonts } from 'expo-font';
-import Button from '../buttonTitleStart';
+// import Button from '../buttonTitleStart';
 
 const titleImage = require('../../assets/Cat_Base_Sprite.png');
 
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   const [fontsLoaded] = useFonts({
     'catFont': require('../../assets/fonts/Ginger Cat.ttf'),
   });
@@ -18,8 +18,11 @@ export default function HomeScreen() {
         <Text style={{ fontFamily: 'catFont', fontSize: 30 }}>Hello There</Text>
         <StatusBar style="auto" />
       </View>
-      <View style={styles.footerContainer}>
-        <Button label="Start" />
+      <View style={{backgroundColor: '#FFF', flex: 1/10}}>
+        <Button 
+          title="Start" 
+          onPress={() => navigation.navigate("Main")}
+        />
       </View>
     </SafeAreaProvider>
   );
